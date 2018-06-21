@@ -3,7 +3,7 @@ package main
 import "fmt"
 import "strings"
 
-const Version = "0.1.1"
+const Version = "0.1.2"
 
 type runeinfo map[string]int
 
@@ -23,12 +23,12 @@ func mapRunes(line string) runeinfo {
 	runes := make(map[string]int)
 	for _, r := range line {
 		s := string(r)
-		oldCount, ok := runes[s]
+		count, ok := runes[s]
 		if !ok {
-			oldCount = 0
+			count = 0
 		}
-		newCount := oldCount + 1
-		runes[s] = newCount
+		count++
+		runes[s] = count
 	}
 	return runes
 }
